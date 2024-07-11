@@ -1,12 +1,14 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
-import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.tsx";
 import "./index.css";
 import History from "./routes/History.tsx";
 import Login from "./routes/Login.tsx";
 import Signup from "./routes/Signup.tsx";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { CookiesProvider, useCookies } from "react-cookie";
+
+const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
@@ -30,6 +32,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <div className="bg-black text-white">
-    <RouterProvider router={router} />,
+    <CookiesProvider>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />,
+      </QueryClientProvider>
+    </CookiesProvider>
   </div>
 );

@@ -6,7 +6,7 @@ import History from "./routes/History.tsx";
 import Login from "./routes/Login.tsx";
 import Signup from "./routes/Signup.tsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { CookiesProvider, useCookies } from "react-cookie";
+import { CookiesProvider } from "react-cookie";
 
 const queryClient = new QueryClient();
 
@@ -32,7 +32,7 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <div className="bg-black text-white">
-    <CookiesProvider>
+    <CookiesProvider defaultSetOptions={{ path: "/" }}>
       <QueryClientProvider client={queryClient}>
         <RouterProvider router={router} />,
       </QueryClientProvider>

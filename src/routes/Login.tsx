@@ -6,7 +6,7 @@ import * as Yup from "yup";
 import { pocketbase } from "../lib/utils";
 import { useCookies } from "react-cookie";
 const Login = () => {
-  const [cookies, setCookie] = useCookies(["user"]);
+  const [cookie, setCookie] = useCookies(["user"]);
 
   const LoginValidationSchema = Yup.object({
     email: Yup.string()
@@ -19,9 +19,11 @@ const Login = () => {
     const loginInfo = await pocketbase
       .collection("users")
       .authWithPassword(email, password);
+    setCookie("user", pocketbase.authStore.token);
+    console.log(cookie.user);
+
     return loginInfo;
   };
-
   const formik = useFormik({
     initialValues: {
       email: "",

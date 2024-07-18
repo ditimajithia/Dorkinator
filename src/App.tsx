@@ -14,7 +14,7 @@ function App() {
         {/* Hero Section */}
         <Hero />
         {/* <div className="absolute left-0"> */}
-        {/* <CurvedBackground /> */}
+        <CurvedBackground />
         {/* Dorks List */}
         <div className="">
           <DorksList />

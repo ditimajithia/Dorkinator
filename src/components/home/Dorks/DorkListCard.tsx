@@ -7,7 +7,7 @@ interface DorkListCardProps {
 const DorkListCard = ({ icon, description, title }: DorkListCardProps) => {
   return (
     <div>
-      <div className="bg-[#18181C] rounded-3xl space-y-5 p-10 mt-10">
+      <div className="bg-[#18181C] rounded-3xl space-y-5 lg:p-10 mt-10 md:px-5 md:py-8">
         <div className="w-20 h-20 mx-auto bg-gradient-to-br from-[#FF9898] rounded-3xl to-[#8054FF] -z-10">
           <div className="w-full h-full flex items-center justify-center">
             {icon}

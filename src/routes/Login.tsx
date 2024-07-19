@@ -1,13 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { pocketbase } from "../lib/utils";
 import { useCookies } from "react-cookie";
+import { useToast } from "../components/ui/use-toast";
+
 const Login = () => {
   const [cookie, setCookie] = useCookies(["user"]);
-
+  const { toast } = useToast();
+  const navigate = useNavigate();
   const LoginValidationSchema = Yup.object({
     email: Yup.string()
       .email("Invalid email address")
@@ -18,7 +21,11 @@ const Login = () => {
   const HandleLogin = async (email: string, password: string) => {
     const loginInfo = await pocketbase
       .collection("users")
-      .authWithPassword(email, password);
+      .authWithPassword(email, password)
+      .then(() => {
+        navigate("/");
+        toast;
+      });
     setCookie("user", pocketbase.authStore.token);
     console.log(cookie.user);
 

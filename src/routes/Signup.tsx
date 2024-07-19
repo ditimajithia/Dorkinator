@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { useFormik } from "formik";
@@ -6,13 +6,14 @@ import * as Yup from "yup";
 import { pocketbase } from "../lib/utils";
 
 const Signup = () => {
+  const navigate = useNavigate();
   const SignupSchema = Yup.object({
     email: Yup.string()
       .email("Invalid email address")
       .required("Email is required"),
     password: Yup.string()
       .matches(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@_$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@_$!%*?&])[A-Za-z\d@_$!%*?&]{8,}$/,
         "Password must contain at least 8 characters, one uppercase, one lowercase, one number and one special case character"
       )
       .required("Password is required"),
@@ -27,11 +28,16 @@ const Signup = () => {
     password: string,
     passwordConfirm: string
   ) => {
-    const record = await pocketbase.collection("users").create({
-      email,
-      password,
-      passwordConfirm,
-    });
+    const record = await pocketbase
+      .collection("users")
+      .create({
+        email,
+        password,
+        passwordConfirm,
+      })
+      .then(() => {
+        navigate("/login");
+      });
     return record;
   };
 

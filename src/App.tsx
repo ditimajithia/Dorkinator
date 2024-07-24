@@ -9,7 +9,6 @@ function App() {
   return (
     <>
       <div className="antialiased font-poppins">
-        {/* Navbar */}
         <Navbar />
         {/* Hero Section */}
         <Hero />

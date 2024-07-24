@@ -1,29 +1,40 @@
-import { Bolt, Bomb, Caravan, Copy } from "lucide-react";
 import { Input } from "../../ui/input";
 import DorkListCard from "./DorkListCard";
+import { useQuery } from "@tanstack/react-query";
+import { pocketbase } from "../../../lib/utils";
+import { Button } from "../../ui/button";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 type TCardsConfig = {
   IconSize: number;
 };
 
-type TDorklistCard = {
-  title: string;
-  description: string;
-  icon: React.ReactNode;
-};
-
 const DorksList = () => {
+  const [dorkIcon, setDorkIcon] = useState();
+  const [dorkRecordId, setDorkRecordId] = useState();
+
+  const getDorksList = async () => {
+    const records = await pocketbase
+      .collection("dorks_cards_data")
+      .getFullList({
+        sort: "-created",
+      });
+    return records;
+  };
+  const { data, isFetching } = useQuery({
+    queryKey: ["get_dorks_list"],
+    queryFn: getDorksList,
+  });
+  const DorkListData = data;
+  console.log("User Token", pocketbase?.authStore?.model?.id);
+
   const CardsConfig: TCardsConfig = {
     IconSize: 35,
   };
-  const CardsData: TDorklistCard[] = [
-    {
-      title: "Fully Customizable",
-      description:
-        "A good design is not only aesthetically pleasing, but also functional. It should be able to solve the problem.",
-      icon: <Copy size={CardsConfig.IconSize} />,
-    },
-  ];
+
+  console.log(">>>> Cards Data", DorkListData);
+
   return (
     <section>
       <div className="container mx-auto px-40">
@@ -36,14 +47,16 @@ const DorksList = () => {
           </div>
         </div>
         <div className="grid grid-cols-3 gap-7 justify-center">
-          {CardsData?.map((card) => (
+          {/* {CardsData?.map((card) => (
             <DorkListCard
+              recordId={}
               title={card.title}
               description={card.description}
               icon={card.icon}
             />
-          ))}
+          ))} */}
         </div>
+        <Button onClick={getDorksList}>Get Dorks List</Button>
       </div>
     </section>
   );

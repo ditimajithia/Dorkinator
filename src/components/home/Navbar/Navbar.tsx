@@ -8,8 +8,13 @@ import { pocketbase } from "../../../lib/utils";
 import { Link } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { useToast } from "../../ui/use-toast";
+import { useEffect, useState } from "react";
 
-const Navbar = () => {
+type TNavbarProps = {
+  isHistoryPage?: boolean;
+};
+
+const Navbar = ({ isHistoryPage }: TNavbarProps) => {
   const [cookie, setCookie, removeCookie] = useCookies(["user"]);
   const { toast } = useToast();
   const isLoggedIn = (): boolean => {
@@ -40,9 +45,12 @@ const Navbar = () => {
             <div>
               {isLoggedIn() ? (
                 <div className="space-y-2 w-2">
-                  <p className="border-b-2 pb-1">
-                    <Link to="/history">History</Link>
-                  </p>
+                  {!isHistoryPage && (
+                    <p className="border-b-2 pb-1">
+                      <Link to="/history">History</Link>
+                    </p>
+                  )}
+
                   <p
                     onClick={() => handleLogout()}
                     className="cursor-pointer border-b-2 pb-1"

@@ -8,7 +8,7 @@ import CurvedBackground from "./components/home/CurvedBackground";
 function App() {
   return (
     <>
-      <div className="antialiased font-poppins">
+      <div className="antialiased font-poppins scroll-smooth">
         <Navbar />
         {/* Hero Section */}
         <Hero />
@@ -19,9 +19,10 @@ function App() {
           <DorksList />
         </div>
         {/* Leads Form */}
-        <div className="mt-[300px]">
+        <div className="md:mt-[300px] mt-24">
           <LeadsForm />
         </div>
+        <div className="h-28" />
       </div>
     </>
   );

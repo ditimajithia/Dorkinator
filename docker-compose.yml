@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  react-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      - NODE_ENV=development
+    command: npm start
+  pocketbase:
+    build:
+      context: .
+      dockerfile: utils/pocketbase/Dockerfile
+    container_name: pocketbase
+    ports:
+      - "8090:8090"
+    volumes:
+      - ./pb_data:/pb_data
+    environment:
+      - POCKETBASE_DEBUG=true
+    command: ["serve", "--dir", "/pb_data"]

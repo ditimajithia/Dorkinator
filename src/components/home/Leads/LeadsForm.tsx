@@ -41,19 +41,21 @@ const LeadsForm = () => {
 
   return (
     <section>
-      <div className="container mx-auto px-40">
+      <div className="container mx-auto md:px-40">
         <div className="relative">
-          <div className="absolute scale-[0.6] top-[-150px] right-[50%]">
+          <div className="absolute md:scale-[0.6] scale-50 top-[-100px] right-[-20px] md:top-[-150px] md:right-[50%]">
             <img src={Ellipse} alt="Gola" />
           </div>
           <div className="flex">
-            <div className="w-1/2"></div>
-            <div className="w-1/2 space-y-5 ">
-              <form>
-                <h1 className="text-5xl font-semibold">Get in Touch</h1>
-                <p className="text-[#9E9E9E] text-lg">
-                  A good design is not only aesthetically pleasing, but also
-                  functional. It should be able to solve the problem{" "}
+            <div className="md:w-1/2 w-0"></div>
+            <div className="md:w-1/2 w-full">
+              <form className="md:space-y-5 space-y-3">
+                <h1 className="md:text-5xl text-xl font-semibold">
+                  Get in Touch
+                </h1>
+                <p className="text-[#9E9E9E] md:text-lg text-base">
+                  Your feedback helps us improve our services; please share your
+                  thoughts below.{" "}
                 </p>
                 <div className="space-y-5">
                   <Input

@@ -32,12 +32,14 @@ const Navbar = ({ isHistoryPage }: TNavbarProps) => {
   };
 
   return (
-    <div className="container mx-auto px-40">
-      <div className=" flex justify-between h-20 items-center">
-        <p>Dorkinator</p>
-        <Popover className="">
+    <div className="container mx-auto lg:px-40">
+      <div className=" flex justify-between lg:h-20 items-center">
+        <Link to={"/"}>
+          <p>Dorkinator</p>
+        </Link>
+        <Popover>
           <PopoverTrigger asChild>
-            <div className="bg-gradient-to-r from-[#FF9898] to-[#8054FF] p-5 rounded-full">
+            <div className="bg-gradient-to-r from-[#FF9898] to-[#8054FF] p-5 rounded-full sm:scale-50 md:scale-75 lg:scale-100 scale-50">
               <User size={25} />
             </div>
           </PopoverTrigger>
@@ -61,7 +63,7 @@ const Navbar = ({ isHistoryPage }: TNavbarProps) => {
               ) : (
                 <div className="space-y-2">
                   <p className="border-b-2 pb-1">
-                    <Link to="/login">login</Link>
+                    <Link to="/login">Login</Link>
                   </p>
                   <p className="border-b-2 pb-1">
                     <Link to="/signup">Signup</Link>

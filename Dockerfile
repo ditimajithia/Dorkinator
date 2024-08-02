@@ -15,6 +15,7 @@ COPY . .
 
 # Expose the port the app runs on
 EXPOSE 4173
+EXPOSE 5173
 
 # Start the React application
 RUN npm run build

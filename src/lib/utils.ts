@@ -6,6 +6,6 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-const pocketbase_ip = "3.75.158.163" || "3.125.183.140" || "35.157.117.28";
+const pocketbase_ip = "http://20.56.210.28:3000";
 
 export const pocketbase = new PocketBase(pocketbase_ip);

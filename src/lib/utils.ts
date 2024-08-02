@@ -6,4 +6,4 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export const pocketbase = new PocketBase("http://127.0.0.1:8090");
+export const pocketbase = new PocketBase("http://20.56.210.28:8090/");

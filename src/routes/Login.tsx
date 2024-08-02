@@ -8,6 +8,7 @@ import { useCookies } from "react-cookie";
 import Navbar from "../components/home/Navbar/Navbar";
 
 const Login = () => {
+  // @ts-ignore
   const [cookie, setCookie] = useCookies(["user"]);
   const navigate = useNavigate();
   const LoginValidationSchema = Yup.object({

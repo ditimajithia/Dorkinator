@@ -1,20 +1,16 @@
 import { User } from "lucide-react";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+import { Popover, PopoverContent, PopoverTrigger } from "../../ui/popover";
 import { pocketbase } from "../../../lib/utils";
 import { Link } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { useToast } from "../../ui/use-toast";
-import { useEffect, useState } from "react";
 
 type TNavbarProps = {
   isHistoryPage?: boolean;
 };
 
 const Navbar = ({ isHistoryPage }: TNavbarProps) => {
+  // @ts-ignore
   const [cookie, setCookie, removeCookie] = useCookies(["user"]);
   const { toast } = useToast();
   const isLoggedIn = (): boolean => {

@@ -1,8 +1,3 @@
-type TDorksHistory = {
-  domain: string;
-  dork: string;
-};
-
 import { useLocation } from "react-router";
 import Navbar from "../components/home/Navbar/Navbar";
 import {
@@ -17,7 +12,7 @@ import { pocketbase } from "../lib/utils";
 import { useQuery } from "@tanstack/react-query";
 import { RecordModel } from "pocketbase";
 import { useEffect } from "react";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "../components/ui/use-toast";
 
 const History = () => {
   const location = useLocation();

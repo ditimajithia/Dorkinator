@@ -6,13 +6,15 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "4173:4173"
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
     environment:
       - NODE_ENV=development
-    command: npm start
+    networks:
+      - app-network
+
   pocketbase:
     build:
       context: .
@@ -24,4 +26,9 @@ services:
       - ./pb_data:/pb_data
     environment:
       - POCKETBASE_DEBUG=true
-    command: ["serve", "--dir", "/pb_data"]
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

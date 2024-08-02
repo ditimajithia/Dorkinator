@@ -1,4 +1,3 @@
-import React from "react";
 import CurvedBackgroundImage from "../../assets/backdrop-dependencies/curve.svg";
 
 const CurvedBackground = () => {

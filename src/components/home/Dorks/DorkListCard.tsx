@@ -23,7 +23,7 @@ const DorkListCard = ({
           <div className=" ">
             <div className="md:w-12 md:h-12 w-10 h-10">
               <img
-                src={`http://127.0.0.1:8090/api/files/${collectionId}/${id}/${dork_icon}`}
+                src={`https://dorkinator.pockethost.io/${collectionId}/${id}/${dork_icon}`}
               />
             </div>
           </div>

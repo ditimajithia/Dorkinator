@@ -95,5 +95,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For any questions or support:
 
-- **Email:** [diti.majithia@example.com](mailto:diti.majithia@example.com)
+- **Email:** [ditimajithia00@gmail.com](mailto:ditimajithia00@gmail.com)
 - **GitHub:** [@ditimajithia](https://github.com/ditimajithia)

@@ -1,4 +1,3 @@
-
 # Dorkinator
 
 Dorkinator is a web-based automated Google Dorking tool designed to enhance the cybersecurity posture of organizations by simplifying the information-gathering phase of penetration testing. This tool automates complex Google Dorking queries, making it easier for cybersecurity professionals to identify vulnerabilities in websites and databases. Dorkinator was developed as part of an MSc research project in Cybersecurity at the National College of Ireland.
@@ -98,4 +97,3 @@ For any questions or support:
 
 - **Email:** [diti.majithia@example.com](mailto:diti.majithia@example.com)
 - **GitHub:** [@ditimajithia](https://github.com/ditimajithia)
-```
